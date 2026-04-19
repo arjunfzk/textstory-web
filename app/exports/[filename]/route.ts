@@ -1,12 +1,12 @@
 /**
- * GET /exports/[filename] — serves exported video files.
+ * GET /exports/[filename] — serves exported video files in dev mode.
  *
  * In production, Nginx serves these directly from /tmp/textstory/exports/.
- * This route exists for dev mode where Nginx is not running.
+ * This route exists only for development where Nginx is not running.
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import * as fs from 'node:fs';
+import { readFile, stat } from 'node:fs/promises';
 import * as path from 'node:path';
 
 const EXPORTS_DIR = '/tmp/textstory/exports';
@@ -24,18 +24,18 @@ export async function GET(
 
   const filePath = path.join(EXPORTS_DIR, filename);
 
-  if (!fs.existsSync(filePath)) {
+  try {
+    const fileStat = await stat(filePath);
+    const buffer = await readFile(filePath);
+
+    return new NextResponse(buffer, {
+      headers: {
+        'Content-Type': 'video/mp4',
+        'Content-Length': fileStat.size.toString(),
+        'Content-Disposition': `attachment; filename="${filename}"`,
+      },
+    });
+  } catch {
     return NextResponse.json({ error: 'File not found' }, { status: 404 });
   }
-
-  const stat = fs.statSync(filePath);
-  const stream = fs.createReadStream(filePath);
-
-  return new NextResponse(stream as unknown as ReadableStream, {
-    headers: {
-      'Content-Type': 'video/mp4',
-      'Content-Length': stat.size.toString(),
-      'Content-Disposition': `attachment; filename="${filename}"`,
-    },
-  });
 }

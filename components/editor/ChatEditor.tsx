@@ -21,6 +21,7 @@ const SIDEBAR_ITEMS = ['Drafts', 'Characters', 'Layouts', 'Assets', 'Export'] as
 const PLATFORMS: { key: ChatStyle; label: string }[] = [
   { key: 'imessage', label: 'iMessage' },
   { key: 'whatsapp', label: 'WhatsApp' },
+  { key: 'instagram', label: 'Instagram' },
 ];
 
 export function ChatEditor() {
@@ -284,7 +285,7 @@ export function ChatEditor() {
             >
               PLATFORM PRESET
             </h3>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-3 gap-2">
               {PLATFORMS.map(({ key, label }) => {
                 const isSelected = style === key;
                 return (

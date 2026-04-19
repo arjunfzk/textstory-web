@@ -21,13 +21,13 @@ const messageSchema = z.discriminatedUnion('kind', [
   z.object({
     id: z.string(),
     kind: z.literal('text'),
-    text: z.string().min(1, 'Message text cannot be empty'),
+    text: z.string().min(1, 'Message text cannot be empty').max(2000, 'Message text too long'),
     sender: z.enum(['you', 'friend']),
   }),
   z.object({
     id: z.string(),
     kind: z.literal('image'),
-    imageUrl: z.string().min(1, 'Image URL is required'),
+    imageUrl: z.string().startsWith('/api/upload/', 'Image URL must be an internal upload path'),
     sender: z.enum(['you', 'friend']),
     width: z.number().positive().optional(),
     height: z.number().positive().optional(),
@@ -43,7 +43,7 @@ const conversationSchema = z.object({
       .max(MAX_MESSAGES, `Max ${MAX_MESSAGES} messages per export`),
     contact: z.object({
       name: z.string().min(1, 'Contact name is required').max(30),
-      profileImageUrl: z.string().optional(),
+      profileImageUrl: z.string().startsWith('/api/upload/').optional(),
     }),
     style: z.enum(['imessage', 'whatsapp', 'instagram']),
   }),

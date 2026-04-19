@@ -9,7 +9,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import sharp from 'sharp';
-import { mkdir, writeFile } from 'fs/promises';
+import { mkdir } from 'fs/promises';
 import { join } from 'path';
 
 const UPLOAD_DIR = '/tmp/textstory/uploads';

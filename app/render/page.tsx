@@ -21,7 +21,7 @@
 
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { Conversation, TimelineEntry } from '@/lib/types';
 import { ExportChatView } from '@/components/export/ExportChatView';
 
@@ -37,7 +37,7 @@ declare global {
 }
 
 export default function RenderPage() {
-  const conversationRef = useRef<Conversation | null>(null);
+  const [conversation, setConversation] = useState<Conversation | null>(null);
   const [frame, setFrame] = useState<TimelineEntry | null>(null);
 
   // Register frame control + conversation data in a single effect to
@@ -49,7 +49,7 @@ export default function RenderPage() {
 
   useEffect(() => {
     if (window.__TEXTSTORY_DATA__) {
-      conversationRef.current = window.__TEXTSTORY_DATA__;
+      setConversation(window.__TEXTSTORY_DATA__);
     }
 
     window.__setFrame = handleSetFrame;
@@ -71,8 +71,6 @@ export default function RenderPage() {
       });
     }
   }, [frame]);
-
-  const conversation = conversationRef.current;
 
   return (
     <>

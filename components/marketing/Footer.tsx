@@ -46,10 +46,7 @@ export function Footer() {
         </span>
 
         <div className="flex items-center gap-6">
-          <Link href="/terms" className="text-xs" style={{ color: "#d2c5ad" }}>Terms</Link>
-          <Link href="/privacy" className="text-xs" style={{ color: "#d2c5ad" }}>Privacy</Link>
-          <Link href="/api" className="text-xs" style={{ color: "#d2c5ad" }}>API</Link>
-          <Link href="/support" className="text-xs" style={{ color: "#d2c5ad" }}>Support</Link>
+          <Link href="/editor" className="text-xs" style={{ color: "#d2c5ad" }}>Editor</Link>
         </div>
 
         <p className="text-xs" style={{ color: "#4e4634" }}>
