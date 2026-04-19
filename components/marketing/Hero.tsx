@@ -20,7 +20,10 @@ export function Hero() {
 
         <div className="flex items-center gap-8">
           <Link href="#features" className="text-sm" style={{ color: "#d2c5ad" }}>Features</Link>
+          <Link href="#features" className="text-sm" style={{ color: "#d2c5ad" }}>Showcase</Link>
+          <Link href="#" className="text-sm" style={{ color: "#d2c5ad" }}>Pricing</Link>
           <Link href="/editor" className="text-sm" style={{ color: "#d2c5ad" }}>Editor</Link>
+          <Link href="/editor" className="text-sm" style={{ color: "#d2c5ad" }}>Login</Link>
           <Link
             href="/editor"
             className="rounded-full px-5 py-2 text-sm font-semibold"

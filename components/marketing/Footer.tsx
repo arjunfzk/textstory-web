@@ -38,12 +38,17 @@ export function Footer() {
         className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-8 sm:flex-row sm:justify-between"
         style={{ borderTop: "1px solid #3a3939" }}
       >
-        <span
-          className="text-base font-bold tracking-tight"
-          style={{ fontFamily: "var(--font-jakarta)", color: "#ffd13d" }}
-        >
-          TextStory
-        </span>
+        <div className="flex flex-col items-center sm:items-start">
+          <span
+            className="text-base font-bold tracking-tight"
+            style={{ fontFamily: "var(--font-jakarta)", color: "#ffd13d" }}
+          >
+            TextStory
+          </span>
+          <span className="text-[10px] uppercase tracking-widest" style={{ color: "#4e4634" }}>
+            High-Fidelity Simulations
+          </span>
+        </div>
 
         <div className="flex items-center gap-6">
           <Link href="/editor" className="text-xs" style={{ color: "#d2c5ad" }}>Editor</Link>

@@ -10,6 +10,7 @@ const TESTIMONIALS = [
     quote:
       "The iMessage theme is indistinguishable from the real thing. My viewers actually think they\u2019re watching a real chat.",
     color: "#e2b500",
+    gradient: "linear-gradient(135deg, #e2b500, #ff8c42)",
   },
   {
     name: "Elena S.",
@@ -17,6 +18,7 @@ const TESTIMONIALS = [
     quote:
       "The simulated recording export is a life-saver. No more buggy phone recorders or cropping issues.",
     color: "#ffd13d",
+    gradient: "linear-gradient(135deg, #5b8def, #a855f7)",
   },
   {
     name: "David K.",
@@ -24,6 +26,7 @@ const TESTIMONIALS = [
     quote:
       "Simple, powerful, and pixel-perfect. The typing animations add that human touch that makes stories go viral.",
     color: "#d2c5ad",
+    gradient: "linear-gradient(135deg, #8b8b8b, #b8a88a)",
   },
 ] as const;
 
@@ -44,16 +47,17 @@ export function HowItWorks() {
             className="flex flex-col items-center rounded-[2rem] p-8 text-center"
             style={{ background: "#1c1b1b" }}
           >
-            {/* Avatar placeholder */}
+            {/* Avatar with gradient background and gold ring */}
             <div
-              className="mb-5 flex h-16 w-16 items-center justify-center rounded-full text-lg font-bold"
-              style={{
-                background: "#2a2a2a",
-                border: `2px solid ${t.color}`,
-                color: t.color,
-              }}
+              className="mb-5 flex h-12 w-12 items-center justify-center rounded-full p-[2px]"
+              style={{ background: `linear-gradient(135deg, ${t.color}, #ffd13d)` }}
             >
-              {t.name.charAt(0)}
+              <div
+                className="flex h-full w-full items-center justify-center rounded-full text-sm font-bold"
+                style={{ background: t.gradient, color: "#fff" }}
+              >
+                {t.name.charAt(0)}
+              </div>
             </div>
 
             <p className="mb-6 flex-1 text-sm italic leading-relaxed" style={{ color: "#d2c5ad" }}>

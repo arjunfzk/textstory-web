@@ -29,6 +29,16 @@ function StatBadge({ label }: { label: string }) {
 export function StyleShowcase() {
   return (
     <section id="features" className="px-5 py-20">
+      {/* Section label pill */}
+      <div className="mx-auto mb-8 flex max-w-5xl justify-center">
+        <span
+          className="inline-block rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em]"
+          style={{ color: "#ffd13d", border: "1px solid #4e4634" }}
+        >
+          Simulation Engine
+        </span>
+      </div>
+
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-3">
 
         {/* ── Large card: Customizable Chat Bubbles (spans 2 cols) ── */}
@@ -37,6 +47,13 @@ export function StyleShowcase() {
           style={{ background: "#1c1b1b", border: "1px solid rgba(78,70,52,0.1)" }}
         >
           <div>
+            {/* Card label tag */}
+            <span
+              className="mb-3 inline-block rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-[0.15em]"
+              style={{ color: "#ffd13d", border: "1px solid #4e4634" }}
+            >
+              Simulation Engine
+            </span>
             <h3
               className="text-2xl font-bold tracking-tight sm:text-3xl"
               style={{ fontFamily: "var(--font-jakarta)", color: "#e5e2e1" }}
@@ -63,6 +80,15 @@ export function StyleShowcase() {
           className="flex flex-col rounded-[2rem] p-8"
           style={{ background: "#2a2a2a", border: "1px solid rgba(78,70,52,0.1)" }}
         >
+          {/* Typing dots icon */}
+          <div
+            className="mb-3 inline-flex w-fit items-center gap-[4px] rounded-full px-3 py-1.5"
+            style={{ background: "rgba(255,209,61,0.1)" }}
+          >
+            <span className="inline-block h-[6px] w-[6px] rounded-full" style={{ background: "#ffd13d", opacity: 0.5 }} />
+            <span className="inline-block h-[6px] w-[6px] rounded-full" style={{ background: "#ffd13d", opacity: 0.8 }} />
+            <span className="inline-block h-[6px] w-[6px] rounded-full" style={{ background: "#ffd13d" }} />
+          </div>
           <h3
             className="text-lg font-bold tracking-tight"
             style={{ fontFamily: "var(--font-jakarta)", color: "#e5e2e1" }}
@@ -80,6 +106,13 @@ export function StyleShowcase() {
           className="flex flex-col rounded-[2rem] p-8"
           style={{ background: "#2a2a2a", border: "1px solid rgba(78,70,52,0.1)" }}
         >
+          {/* Video camera icon */}
+          <div className="mb-3">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffd13d" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="6" width="13" height="12" rx="2" />
+              <path d="M15 10l5-3v10l-5-3" />
+            </svg>
+          </div>
           <h3
             className="text-lg font-bold tracking-tight"
             style={{ fontFamily: "var(--font-jakarta)", color: "#e5e2e1" }}
