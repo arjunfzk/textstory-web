@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-jakarta: var(--font-jakarta);
+  --font-inter: var(--font-inter);
+  --font-roboto: var(--font-roboto);
+}
+
+/**
+ * Design tokens — Obsidian Gold palette.
+ *
+ * Dark surfaces with warm gold accents. No borders — background
+ * color shifts separate sections. Gold gradient for primary CTAs.
+ */
+:root {
+  /* Surfaces */
+  --bg-base: #131313;
+  --surface-container-low: #1c1b1b;
+  --surface-container: #201f1f;
+  --surface-container-high: #2a2a2a;
+  --surface-bright: #3a3939;
+
+  /* Primary — gold */
+  --primary: #ffd13d;
+  --primary-container: #e2b500;
+  --on-primary: #3d2f00;
+
+  /* Text */
+  --on-surface: #e5e2e1;
+  --on-surface-variant: #d2c5ad;
+
+  /* Outline */
+  --outline-variant: #4e4634;
+
+  /* Layout */
+  --editor-topbar-h: 80px;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Scrollbar styling for the editor panel */
+.editor-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.editor-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.editor-scroll::-webkit-scrollbar-thumb {
+  background: rgba(78, 70, 52, 0.4);
+  border-radius: 2px;
+}

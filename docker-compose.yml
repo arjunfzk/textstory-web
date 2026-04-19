@@ -1,0 +1,33 @@
+# TextStory Web — Docker Compose for VPS deployment.
+#
+# Two services: Nginx reverse proxy + Next.js app.
+# Shared volume for temporary export artifacts.
+
+services:
+  web:
+    build: .
+    environment:
+      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+      - NODE_ENV=production
+    volumes:
+      - tmp-data:/tmp/textstory
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - tmp-data:/tmp/textstory:ro
+    depends_on:
+      - web
+    restart: unless-stopped
+
+volumes:
+  tmp-data:
